@@ -61,6 +61,9 @@
     <org.apache.maven.plugins.maven-war-plugin.version>3.3.2</org.apache.maven.plugins.maven-war-plugin.version>
     <org.apache.maven.plugins.maven-surefire-plugin.version>3.0.0</org.apache.maven.plugins.maven-surefire-plugin.version>
     <org.eclipse.jetty.jetty-maven-plugin.version>11.0.20</org.eclipse.jetty.jetty-maven-plugin.version>
+    <org.apache.maven.plugins.maven-pmd-plugin.version>3.21.2</org.apache.maven.plugins.maven-pmd-plugin.version>
+    <org.apache.maven.plugins.maven-javadoc-plugin.version>3.6.3</org.apache.maven.plugins.maven-javadoc-plugin.version>
+    <org.apache.maven.plugins.maven-surefire-report-plugin.version>3.0.0</org.apache.maven.plugins.maven-surefire-report-plugin.version>
   </properties>
 
   <scm>
@@ -115,6 +118,32 @@
         <groupId>org.eclipse.jetty</groupId>
         <artifactId>jetty-maven-plugin</artifactId>
         <version>${org.eclipse.jetty.jetty-maven-plugin.version}</version>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-pmd-plugin</artifactId>
+        <version>${org.apache.maven.plugins.maven-pmd-plugin.version}</version>
+        <configuration>
+          <linkXRef>false</linkXRef>
+          <sourceEncoding>${project.build.sourceEncoding}</sourceEncoding>
+          <targetJdk>${maven.compiler.target}</targetJdk>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <version>${org.apache.maven.plugins.maven-javadoc-plugin.version}</version>
+        <configuration>
+          <source>${maven.compiler.source}</source>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-report-plugin</artifactId>
+        <version>${org.apache.maven.plugins.maven-surefire-report-plugin.version}</version>
       </plugin>
     </plugins>
   </build>
